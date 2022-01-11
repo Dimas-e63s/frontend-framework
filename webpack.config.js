@@ -4,11 +4,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    index: "./core/index.js",
+    index: "./index.js",
+    entry: "./core/index.js",
+    element: "./core/element.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Development",
+      template: "index.html",
     }),
   ],
   optimization: {
