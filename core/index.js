@@ -1,8 +1,7 @@
-export const init = (selector, { type, template }) => {
-  const app = document.querySelector(selector);
-  const newElement = document.createElement(type);
-  const newTextContent = document.createTextNode(template);
+import * as snabbdom from "snabbdom";
+const patch = snabbdom.init([snabbdom.eventListenersModule]);
 
-  newElement.append(newTextContent);
-  app.append(newElement);
+export const init = (selector, component) => {
+  const app = document.querySelector(selector);
+  patch(app, component.template);
 };
